@@ -9,3 +9,22 @@ export interface NasaAPODData {
   thumbnail_url?: string;
   copyright?: string;
 }
+
+export interface NasaNeoWs {
+  id: string;
+  name: string;
+  [key: string]: unknown;
+}
+
+
+export interface NasaImageItem {
+  data: {
+    nasa_id: string;
+    title: string;
+    [key: string]: unknown;
+  };
+}
+
+export interface NasaImageSearchResult {
+  items: NasaImageItem[];
+}

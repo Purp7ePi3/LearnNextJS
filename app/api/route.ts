@@ -1,4 +1,4 @@
-import { retrieveData } from "../lib/nasa";
+import { retrieveApodData  } from "../lib/APODData";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -8,7 +8,7 @@ export async function GET(req: Request) {
         if(!date){
             return NextResponse.json({ error: "Date parameter is required" }, { status: 400 });
         }
-        const data = await retrieveData(date);
+        const data = await retrieveApodData(date);
         return NextResponse.json(data);
     } catch (err: unknown) {
         const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';

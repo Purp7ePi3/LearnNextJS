@@ -1,7 +1,7 @@
 import { NasaAPODData } from "./types";
 
 
-export async function retrieveData(date: string): Promise<NasaAPODData> {
+export async function retrieveApodData(date: string): Promise<NasaAPODData> {
     const apiKey = process.env.NASA_API_KEY;
     if (!apiKey) {
         throw new Error("NASA_API_KEY non impostata");
