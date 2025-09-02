@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 43, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/simo/Desktop/nasa-app/app/api/route.ts"],"sourcesContent":["import { route } from \"../api/route\";\r\n\r\nexport async function GET() {\r\n  const data = await route.fe();\r\n  return Response.json(data);\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;;AAEO,eAAe;IACpB,MAAM,OAAO,MAAM,wJAAK,CAAC,EAAE;IAC3B,OAAO,SAAS,IAAI,CAAC;AACvB","debugId":null}}]
-}

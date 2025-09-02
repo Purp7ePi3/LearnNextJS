@@ -1,8 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 55, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/simo/Desktop/nasa-app/app/lib/nasa.ts"],"sourcesContent":["export async function fetchApod() {\r\n    const apiKey = process.env.NASA_API_KEY;\r\n    if(!apiKey) throw new Error(\"Nasa api missing\");\r\n    const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);\r\n    if (!res.ok) throw new Error(\"NASA API request failed\");\r\n    return res.json();\r\n}\r\n"],"names":[],"mappings":";;;;AAAO,eAAe;IAClB,MAAM,SAAS,QAAQ,GAAG,CAAC,YAAY;IACvC,IAAG,CAAC,QAAQ,MAAM,IAAI,MAAM;IAC5B,MAAM,MAAM,MAAM,MAAM,CAAC,4CAA4C,EAAE,QAAQ;IAC/E,IAAI,CAAC,IAAI,EAAE,EAAE,MAAM,IAAI,MAAM;IAC7B,OAAO,IAAI,IAAI;AACnB","debugId":null}},
-    {"offset": {"line": 70, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/simo/Desktop/nasa-app/app/api/route.ts"],"sourcesContent":["import { NextResponse } from \"next/server\";\r\nimport { fetchApod } from \"../lib/nasa\";\r\n\r\nexport async function GET() {\r\n  try {\r\n    const data = await fetchApod();\r\n    return NextResponse.json(data);\r\n  } catch (err) {\r\n    return NextResponse.json({ error: \"Failed to fetch NASA API\" }, { status: 500 });\r\n  }\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;AACA;;;AAEO,eAAe;IACpB,IAAI;QACF,MAAM,OAAO,MAAM,IAAA,2JAAS;QAC5B,OAAO,0KAAY,CAAC,IAAI,CAAC;IAC3B,EAAE,OAAO,KAAK;QACZ,OAAO,0KAAY,CAAC,IAAI,CAAC;YAAE,OAAO;QAA2B,GAAG;YAAE,QAAQ;QAAI;IAChF;AACF","debugId":null}}]
-}

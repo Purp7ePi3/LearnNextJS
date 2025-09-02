@@ -7,7 +7,7 @@ import { NasaAPODData } from "./lib/types";
 export default function Home() {
   const today = new Date().toISOString().split("T")[0];
   const [date, setDate] = useState<string>(today);
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<NasaAPODData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
