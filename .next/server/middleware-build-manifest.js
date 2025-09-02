@@ -1,27 +1,23 @@
 globalThis.__BUILD_MANIFEST = {
   "pages": {
-    "/_app": [
-      "static/chunks/770a37dba54c6065.js",
-      "static/chunks/2d0a77e81910d5bd.js",
-      "static/chunks/turbopack-25924b19bc5b3791.js"
-    ],
-    "/_error": [
-      "static/chunks/5b8abb9017967623.js",
-      "static/chunks/2d0a77e81910d5bd.js",
-      "static/chunks/turbopack-5a5efd7868455ae4.js"
-    ]
+    "/_app": []
   },
   "devFiles": [],
   "ampDevFiles": [],
   "polyfillFiles": [
-    "static/chunks/a6dad97d9634a72d.js"
+    "static/chunks/dbe63_next_dist_build_polyfills_polyfill-nomodule.js"
   ],
   "lowPriorityFiles": [],
   "rootMainFiles": [
-    "static/chunks/ba2b671807914fdf.js",
-    "static/chunks/7f07621c59d39068.js",
-    "static/chunks/b76d04bed27579c4.js",
-    "static/chunks/turbopack-e661243b36d5a3c8.js"
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_f296e396._.js",
+    "static/chunks/dbe63_next_dist_compiled_react-dom_517ea716._.js",
+    "static/chunks/dbe63_next_dist_compiled_next-devtools_index_6685774d.js",
+    "static/chunks/dbe63_next_dist_compiled_c5031a38._.js",
+    "static/chunks/dbe63_next_dist_client_5021576c._.js",
+    "static/chunks/dbe63_next_dist_7f75ab00._.js",
+    "static/chunks/dbe63_@swc_helpers_cjs_e56c89d1._.js",
+    "static/chunks/Desktop_nasa-app_a0ff3932._.js",
+    "static/chunks/turbopack-Desktop_nasa-app_d5e8b5dc._.js"
   ],
   "ampFirstPages": []
 };

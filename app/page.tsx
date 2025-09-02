@@ -35,13 +35,13 @@ export default function Home() {
       
       {/* Calendario sempre visibile in alto */}
       <div style={{ alignSelf: "center", marginBottom: "20px" }}>
-        <input 
-          type="date" 
-          value={date} 
-          onChange={(e) => setDate(e.target.value)} 
-          style={{ padding: "10px", fontSize: "16px" }}
-          max={today} // non permette date future
-        />
+       <input
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+        className="appearance-native p-2 text-base"
+        max={today}
+      />
       </div>
 
       {/* Contenuto centrato nello spazio rimanente */}
