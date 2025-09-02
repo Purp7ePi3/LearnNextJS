@@ -2,12 +2,12 @@
 
 import React from "react";
 import { useEffect, useState } from "react";
-import { NasaImageItem } from "../lib/types";
+import { asteroid } from "../lib/types";
 
 export default function Page() {
     const today =  new Date().toISOString().split("T")[0];
     const [date, setDate] = useState<string>(today);
-    const [data, setData] = useState<NasaImageItem | null>(null);
+    const [data, setData] = useState<asteroid | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -19,7 +19,7 @@ export default function Page() {
 
         fetch(`/api?date=${date}`)
             .then(res => res.json())
-            .then((json: NasaImageItem) => {
+            .then((json: asteroid) => {
                 setData(json);
         })
         .catch((err: unknown) => {
@@ -32,7 +32,7 @@ export default function Page() {
 
     return (
         <>
-        <h1>{data.title}</h1>
+        <h1>{data?.description}</h1>
         </>
 
     );

@@ -10,21 +10,8 @@ export interface NasaAPODData {
   copyright?: string;
 }
 
-export interface NasaNeoWs {
-  id: string;
-  name: string;
-  [key: string]: unknown;
-}
-
-
-export interface NasaImageItem {
-  data: {
-    nasa_id: string;
-    title: string;
-    [key: string]: unknown;
-  };
-}
-
-export interface NasaImageSearchResult {
-  items: NasaImageItem[];
+export interface asteroid {
+  nasaId: string;
+  description: string;
+  href: string;
 }
