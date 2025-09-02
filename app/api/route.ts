@@ -6,11 +6,12 @@ export async function GET(req: Request) {
         const {searchParams} = new URL(req.url);
         const date = searchParams.get("date");
         if(!date){
-            return;
+            return NextResponse.json({ error: "Date parameter is required" }, { status: 400 });
         }
         const data = await retrieveData(date);
         return NextResponse.json(data);
     } catch (err: any) {
-        return NextResponse.json({ error: err.message }, { status: 500 });
+        const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
+        return NextResponse.json({ error: errorMessage }, { status: 500 });
     }
 }

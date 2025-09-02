@@ -33,7 +33,8 @@ function Home() {
             }["Home.useEffect"]).catch({
                 "Home.useEffect": (err)=>{
                     console.error(err);
-                    setError("Errore nel caricamento dei dati.");
+                    const errorMessage = err instanceof Error ? err.message : 'Errore nel caricamento dei dati.';
+                    setError(errorMessage);
                 }
             }["Home.useEffect"]).finally({
                 "Home.useEffect": ()=>setLoading(false)
@@ -66,12 +67,12 @@ function Home() {
                     max: today
                 }, void 0, false, {
                     fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                    lineNumber: 35,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                lineNumber: 34,
+                lineNumber: 37,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$nasa$2d$app$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -88,7 +89,7 @@ function Home() {
                         children: "Loading..."
                     }, void 0, false, {
                         fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                        lineNumber: 46,
+                        lineNumber: 49,
                         columnNumber: 21
                     }, this),
                     error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$nasa$2d$app$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -98,7 +99,7 @@ function Home() {
                         children: error
                     }, void 0, false, {
                         fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                        lineNumber: 47,
+                        lineNumber: 50,
                         columnNumber: 19
                     }, this),
                     data && !loading && !error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$nasa$2d$app$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$nasa$2d$app$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -107,7 +108,7 @@ function Home() {
                                 children: data.title
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                                lineNumber: 50,
+                                lineNumber: 53,
                                 columnNumber: 13
                             }, this),
                             data.media_type === "image" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$nasa$2d$app$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -119,7 +120,7 @@ function Home() {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                                lineNumber: 53,
+                                lineNumber: 56,
                                 columnNumber: 15
                             }, this) : data.media_type === "video" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$nasa$2d$app$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
                                 src: data.url,
@@ -132,13 +133,13 @@ function Home() {
                                 allowFullScreen: true
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                                lineNumber: 59,
+                                lineNumber: 62,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$nasa$2d$app$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 children: "Media non disponibile"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                                lineNumber: 66,
+                                lineNumber: 69,
                                 columnNumber: 15
                             }, this),
                             data.explanation && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$nasa$2d$app$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -149,7 +150,7 @@ function Home() {
                                 children: data.explanation
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                                lineNumber: 69,
+                                lineNumber: 72,
                                 columnNumber: 34
                             }, this)
                         ]
@@ -157,13 +158,13 @@ function Home() {
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-                lineNumber: 45,
+                lineNumber: 48,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/nasa-app/app/page.tsx",
-        lineNumber: 31,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 }

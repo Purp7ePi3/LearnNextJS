@@ -1,4 +1,7 @@
-export async function retrieveData(date: string) {
+import { NasaAPODData } from "./types";
+
+
+export async function retrieveData(date: string): Promise<NasaAPODData> {
     const apiKey = process.env.NASA_API_KEY;
     if (!apiKey) {
         throw new Error("NASA_API_KEY non impostata");
@@ -9,6 +12,6 @@ export async function retrieveData(date: string) {
     if (!res.ok) {
         throw new Error(`Errore nella chiamata NASA: ${res.status}`);
     }
-    const data = await res.json();
+    const data: NasaAPODData = await res.json();
     return data;
 }

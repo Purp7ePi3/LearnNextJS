@@ -458,6 +458,10 @@
 @layer components;
 
 @layer utilities {
+  .relative {
+    position: relative;
+  }
+
   .flex {
     display: flex;
   }

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import { NasaAPODData } from "./lib/types";
 
 export default function Home() {
   const today = new Date().toISOString().split("T")[0];
@@ -17,12 +19,13 @@ export default function Home() {
 
     fetch(`/api?date=${date}`)
       .then(res => res.json())
-      .then((json) => {
+      .then((json: NasaAPODData) => {
         setData(json);
       })
-      .catch(err => {
+      .catch((err: unknown) => {
         console.error(err);
-        setError("Errore nel caricamento dei dati.");
+        const errorMessage = err instanceof Error ? err.message : 'Errore nel caricamento dei dati.';
+        setError(errorMessage);
       })
       .finally(() => setLoading(false));
   }, [date]);
@@ -50,11 +53,16 @@ export default function Home() {
             <h1>{data.title}</h1>
 
             {data.media_type === "image" ? (
-              <img 
-                src={data.url} 
-                alt={data.title} 
-                style={{ maxWidth: "80%", borderRadius: "10px" }} 
-              />
+              <div style={{ position: "relative", maxWidth: "80%", height: "auto" }}>
+                <Image 
+                  src={data.url} 
+                  alt={data.title} 
+                  width={800}
+                  height={600}
+                  style={{ borderRadius: "10px", width: "100%", height: "auto" }}
+                  priority
+                />
+              </div>
             ) : data.media_type === "video" ? (
               <iframe 
                 src={data.url} 
