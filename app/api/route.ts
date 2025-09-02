@@ -15,13 +15,43 @@ export async function GET(req: Request) {
         if (asteroidId) {
             console.log("Recupero dettagli asteroide per ID:", asteroidId);
             
+            interface NasaLink {
+                href: string;
+                rel: string;
+                render: string;
+                [key: string]: unknown;
+            }
+            
+            interface NasaItemData {
+                nasa_id: string;
+                title: string;
+                description: string;
+                date_created: string;
+                center: string;
+                [key: string]: unknown;
+            }
+            
+            interface NasaItem {
+                data: NasaItemData[];
+                links?: NasaLink[];
+                [key: string]: unknown;
+            }
+            
+            interface NasaDetailResponse {
+                collection: {
+                    items: NasaItem[];
+                    [key: string]: unknown;
+                };
+                [key: string]: unknown;
+            }
+            
             try {
                 const response = await fetch(`https://images-api.nasa.gov/search?nasa_id=${asteroidId}`);
                 if (!response.ok) {
                     throw new Error(`Errore nella chiamata NASA: ${response.status}`);
                 }
                 
-                const data = await response.json();
+                const data: NasaDetailResponse = await response.json();
                 
                 if (!data?.collection?.items?.[0]) {
                     return NextResponse.json({ error: "Asteroide non trovato" }, { status: 404 });
@@ -29,7 +59,7 @@ export async function GET(req: Request) {
                 
                 const item = data.collection.items[0];
                 const asteroidData = item.data[0];
-                const imageLink = item.links?.find((link: any) => link.render === "image");
+                const imageLink = item.links?.find((link: NasaLink) => link.render === "image");
                 
                 const asteroidDetail = {
                     nasaId: asteroidData.nasa_id,
